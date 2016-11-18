@@ -3,4 +3,5 @@ g++ -c tyk/coprocess_common.pb.cc tyk/coprocess_object.pb.cc tyk/coprocess_retur
 ar rvs coprocess.a coprocess_*.o
 rm coprocess_*.o
 g++ -shared -fPIC middleware.cpp coprocess.a -o middleware.so `pkg-config protobuf --cflags --libs`
-rm coprocess.a
+g++ bench.cpp coprocess.a -o bench `pkg-config protobuf --cflags --libs` -lbenchmark
+# rm coprocess.a
