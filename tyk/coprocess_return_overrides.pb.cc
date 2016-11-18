@@ -11,67 +11,13 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 // @@protoc_insertion_point(includes)
 
 namespace coprocess {
 
-namespace {
-
-const ::google::protobuf::Descriptor* ReturnOverrides_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ReturnOverrides_reflection_ = NULL;
-
-}  // namespace
-
-
-void protobuf_AssignDesc_coprocess_5freturn_5foverrides_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_coprocess_5freturn_5foverrides_2eproto() {
-  protobuf_AddDesc_coprocess_5freturn_5foverrides_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "coprocess_return_overrides.proto");
-  GOOGLE_CHECK(file != NULL);
-  ReturnOverrides_descriptor_ = file->message_type(0);
-  static const int ReturnOverrides_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReturnOverrides, response_code_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReturnOverrides, response_error_),
-  };
-  ReturnOverrides_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      ReturnOverrides_descriptor_,
-      ReturnOverrides::internal_default_instance(),
-      ReturnOverrides_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(ReturnOverrides),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReturnOverrides, _internal_metadata_));
-}
-
-namespace {
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_coprocess_5freturn_5foverrides_2eproto);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      ReturnOverrides_descriptor_, ReturnOverrides::internal_default_instance());
-}
-
-}  // namespace
-
 void protobuf_ShutdownFile_coprocess_5freturn_5foverrides_2eproto() {
   ReturnOverrides_default_instance_.Shutdown();
-  delete ReturnOverrides_reflection_;
 }
 
 void protobuf_InitDefaults_coprocess_5freturn_5foverrides_2eproto_impl() {
@@ -91,12 +37,6 @@ void protobuf_AddDesc_coprocess_5freturn_5foverrides_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   protobuf_InitDefaults_coprocess_5freturn_5foverrides_2eproto();
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n coprocess_return_overrides.proto\022\tcopr"
-    "ocess\"@\n\017ReturnOverrides\022\025\n\rresponse_cod"
-    "e\030\001 \001(\005\022\026\n\016response_error\030\002 \001(\tb\006proto3", 119);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "coprocess_return_overrides.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_coprocess_5freturn_5foverrides_2eproto);
 }
 
@@ -105,12 +45,14 @@ void protobuf_AddDesc_coprocess_5freturn_5foverrides_2eproto() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_coprocess_5freturn_5foverrides_2eproto_once_,
                  &protobuf_AddDesc_coprocess_5freturn_5foverrides_2eproto_impl);
 }
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_coprocess_5freturn_5foverrides_2eproto {
   StaticDescriptorInitializer_coprocess_5freturn_5foverrides_2eproto() {
     protobuf_AddDesc_coprocess_5freturn_5foverrides_2eproto();
   }
 } static_descriptor_initializer_coprocess_5freturn_5foverrides_2eproto_;
+#endif  // GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
 
 namespace {
 
@@ -130,7 +72,7 @@ const int ReturnOverrides::kResponseErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ReturnOverrides::ReturnOverrides()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5freturn_5foverrides_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.ReturnOverrides)
@@ -140,8 +82,8 @@ void ReturnOverrides::InitAsDefaultInstance() {
 }
 
 ReturnOverrides::ReturnOverrides(const ReturnOverrides& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.ReturnOverrides)
@@ -167,11 +109,6 @@ void ReturnOverrides::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ReturnOverrides::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ReturnOverrides_descriptor_;
-}
-
 const ReturnOverrides& ReturnOverrides::default_instance() {
   protobuf_InitDefaults_coprocess_5freturn_5foverrides_2eproto();
   return *internal_default_instance();
@@ -276,30 +213,6 @@ void ReturnOverrides::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.ReturnOverrides)
 }
 
-::google::protobuf::uint8* ReturnOverrides::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.ReturnOverrides)
-  // optional int32 response_code = 1;
-  if (this->response_code() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->response_code(), target);
-  }
-
-  // optional string response_error = 2;
-  if (this->response_error().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->response_error().data(), this->response_error().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.ReturnOverrides.response_error");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->response_error(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.ReturnOverrides)
-  return target;
-}
-
 size_t ReturnOverrides::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.ReturnOverrides)
   size_t total_size = 0;
@@ -325,19 +238,9 @@ size_t ReturnOverrides::ByteSizeLong() const {
   return total_size;
 }
 
-void ReturnOverrides::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.ReturnOverrides)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const ReturnOverrides* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const ReturnOverrides>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.ReturnOverrides)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.ReturnOverrides)
-    UnsafeMergeFrom(*source);
-  }
+void ReturnOverrides::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const ReturnOverrides*>(&from));
 }
 
 void ReturnOverrides::MergeFrom(const ReturnOverrides& from) {
@@ -360,13 +263,6 @@ void ReturnOverrides::UnsafeMergeFrom(const ReturnOverrides& from) {
   }
 }
 
-void ReturnOverrides::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.ReturnOverrides)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
 void ReturnOverrides::CopyFrom(const ReturnOverrides& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:coprocess.ReturnOverrides)
   if (&from == this) return;
@@ -386,16 +282,12 @@ void ReturnOverrides::Swap(ReturnOverrides* other) {
 void ReturnOverrides::InternalSwap(ReturnOverrides* other) {
   std::swap(response_code_, other->response_code_);
   response_error_.Swap(&other->response_error_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata ReturnOverrides::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ReturnOverrides_descriptor_;
-  metadata.reflection = ReturnOverrides_reflection_;
-  return metadata;
+::std::string ReturnOverrides::GetTypeName() const {
+  return "coprocess.ReturnOverrides";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS

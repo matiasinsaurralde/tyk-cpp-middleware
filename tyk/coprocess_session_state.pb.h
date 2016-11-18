@@ -22,13 +22,11 @@
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/metadata.h>
-#include <google/protobuf/message.h>
+#include <google/protobuf/message_lite.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/map.h>
-#include <google/protobuf/map_field_inl.h>
-#include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/map_field_lite.h>
 // @@protoc_insertion_point(includes)
 
 namespace coprocess {
@@ -48,7 +46,7 @@ class SessionState;
 
 // ===================================================================
 
-class AccessSpec : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.AccessSpec) */ {
+class AccessSpec : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.AccessSpec) */ {
  public:
   AccessSpec();
   virtual ~AccessSpec();
@@ -60,7 +58,6 @@ class AccessSpec : public ::google::protobuf::Message /* @@protoc_insertion_poin
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const AccessSpec& default_instance();
 
   static const AccessSpec* internal_default_instance();
@@ -72,8 +69,7 @@ class AccessSpec : public ::google::protobuf::Message /* @@protoc_insertion_poin
   inline AccessSpec* New() const { return New(NULL); }
 
   AccessSpec* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const AccessSpec& from);
   void MergeFrom(const AccessSpec& from);
   void Clear();
@@ -84,11 +80,7 @@ class AccessSpec : public ::google::protobuf::Message /* @@protoc_insertion_poin
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -98,14 +90,14 @@ class AccessSpec : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void UnsafeMergeFrom(const AccessSpec& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -141,7 +133,9 @@ class AccessSpec : public ::google::protobuf::Message /* @@protoc_insertion_poin
   // @@protoc_insertion_point(class_scope:coprocess.AccessSpec)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   ::google::protobuf::RepeatedPtrField< ::std::string> methods_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   mutable int _cached_size_;
@@ -156,7 +150,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<AccessSpec> AccessSpe
 
 // -------------------------------------------------------------------
 
-class AccessDefinition : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.AccessDefinition) */ {
+class AccessDefinition : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.AccessDefinition) */ {
  public:
   AccessDefinition();
   virtual ~AccessDefinition();
@@ -168,7 +162,6 @@ class AccessDefinition : public ::google::protobuf::Message /* @@protoc_insertio
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const AccessDefinition& default_instance();
 
   static const AccessDefinition* internal_default_instance();
@@ -180,8 +173,7 @@ class AccessDefinition : public ::google::protobuf::Message /* @@protoc_insertio
   inline AccessDefinition* New() const { return New(NULL); }
 
   AccessDefinition* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const AccessDefinition& from);
   void MergeFrom(const AccessDefinition& from);
   void Clear();
@@ -192,11 +184,7 @@ class AccessDefinition : public ::google::protobuf::Message /* @@protoc_insertio
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -206,14 +194,14 @@ class AccessDefinition : public ::google::protobuf::Message /* @@protoc_insertio
   void UnsafeMergeFrom(const AccessDefinition& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -272,7 +260,9 @@ class AccessDefinition : public ::google::protobuf::Message /* @@protoc_insertio
   // @@protoc_insertion_point(class_scope:coprocess.AccessDefinition)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   ::google::protobuf::RepeatedPtrField< ::std::string> versions_;
   ::google::protobuf::RepeatedPtrField< ::coprocess::AccessSpec > allowed_urls_;
   ::google::protobuf::internal::ArenaStringPtr api_name_;
@@ -289,7 +279,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<AccessDefinition> Acc
 
 // -------------------------------------------------------------------
 
-class BasicAuthData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.BasicAuthData) */ {
+class BasicAuthData : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.BasicAuthData) */ {
  public:
   BasicAuthData();
   virtual ~BasicAuthData();
@@ -301,7 +291,6 @@ class BasicAuthData : public ::google::protobuf::Message /* @@protoc_insertion_p
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const BasicAuthData& default_instance();
 
   static const BasicAuthData* internal_default_instance();
@@ -313,8 +302,7 @@ class BasicAuthData : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline BasicAuthData* New() const { return New(NULL); }
 
   BasicAuthData* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const BasicAuthData& from);
   void MergeFrom(const BasicAuthData& from);
   void Clear();
@@ -325,11 +313,7 @@ class BasicAuthData : public ::google::protobuf::Message /* @@protoc_insertion_p
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -339,14 +323,14 @@ class BasicAuthData : public ::google::protobuf::Message /* @@protoc_insertion_p
   void UnsafeMergeFrom(const BasicAuthData& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -377,7 +361,9 @@ class BasicAuthData : public ::google::protobuf::Message /* @@protoc_insertion_p
   // @@protoc_insertion_point(class_scope:coprocess.BasicAuthData)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::internal::ArenaStringPtr hash_;
   mutable int _cached_size_;
@@ -392,7 +378,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<BasicAuthData> BasicA
 
 // -------------------------------------------------------------------
 
-class JWTData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.JWTData) */ {
+class JWTData : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.JWTData) */ {
  public:
   JWTData();
   virtual ~JWTData();
@@ -404,7 +390,6 @@ class JWTData : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const JWTData& default_instance();
 
   static const JWTData* internal_default_instance();
@@ -416,8 +401,7 @@ class JWTData : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   inline JWTData* New() const { return New(NULL); }
 
   JWTData* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const JWTData& from);
   void MergeFrom(const JWTData& from);
   void Clear();
@@ -428,11 +412,7 @@ class JWTData : public ::google::protobuf::Message /* @@protoc_insertion_point(c
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -442,14 +422,14 @@ class JWTData : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void UnsafeMergeFrom(const JWTData& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -469,7 +449,9 @@ class JWTData : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   // @@protoc_insertion_point(class_scope:coprocess.JWTData)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   ::google::protobuf::internal::ArenaStringPtr secret_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto_impl();
@@ -483,7 +465,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<JWTData> JWTData_defa
 
 // -------------------------------------------------------------------
 
-class Monitor : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.Monitor) */ {
+class Monitor : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.Monitor) */ {
  public:
   Monitor();
   virtual ~Monitor();
@@ -495,7 +477,6 @@ class Monitor : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const Monitor& default_instance();
 
   static const Monitor* internal_default_instance();
@@ -507,8 +488,7 @@ class Monitor : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   inline Monitor* New() const { return New(NULL); }
 
   Monitor* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const Monitor& from);
   void MergeFrom(const Monitor& from);
   void Clear();
@@ -519,11 +499,7 @@ class Monitor : public ::google::protobuf::Message /* @@protoc_insertion_point(c
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -533,14 +509,14 @@ class Monitor : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void UnsafeMergeFrom(const Monitor& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -561,7 +537,9 @@ class Monitor : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   // @@protoc_insertion_point(class_scope:coprocess.Monitor)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   ::google::protobuf::RepeatedField< double > trigger_limits_;
   mutable int _trigger_limits_cached_byte_size_;
   mutable int _cached_size_;
@@ -576,7 +554,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<Monitor> Monitor_defa
 
 // -------------------------------------------------------------------
 
-class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.SessionState) */ {
+class SessionState : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.SessionState) */ {
  public:
   SessionState();
   virtual ~SessionState();
@@ -588,7 +566,6 @@ class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_po
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const SessionState& default_instance();
 
   static const SessionState* internal_default_instance();
@@ -600,8 +577,7 @@ class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_po
   inline SessionState* New() const { return New(NULL); }
 
   SessionState* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const SessionState& from);
   void MergeFrom(const SessionState& from);
   void Clear();
@@ -612,11 +588,7 @@ class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_po
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -626,14 +598,14 @@ class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_po
   void UnsafeMergeFrom(const SessionState& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -871,14 +843,16 @@ class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_po
   // @@protoc_insertion_point(class_scope:coprocess.SessionState)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   typedef ::google::protobuf::internal::MapEntryLite<
       ::std::string, ::coprocess::AccessDefinition,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
       0 >
       SessionState_AccessRightsEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::coprocess::AccessDefinition,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
@@ -889,7 +863,7 @@ class SessionState : public ::google::protobuf::Message /* @@protoc_insertion_po
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       SessionState_OauthKeysEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,

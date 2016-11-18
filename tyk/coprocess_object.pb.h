@@ -22,13 +22,11 @@
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/metadata.h>
-#include <google/protobuf/message.h>
+#include <google/protobuf/message_lite.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/map.h>
-#include <google/protobuf/map_field_inl.h>
-#include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/map_field_lite.h>
 #include "coprocess_mini_request_object.pb.h"
 #include "coprocess_session_state.pb.h"
 #include "coprocess_common.pb.h"
@@ -48,7 +46,7 @@ class Object;
 
 // ===================================================================
 
-class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.Object) */ {
+class Object : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.Object) */ {
  public:
   Object();
   virtual ~Object();
@@ -60,7 +58,6 @@ class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const Object& default_instance();
 
   static const Object* internal_default_instance();
@@ -72,8 +69,7 @@ class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   inline Object* New() const { return New(NULL); }
 
   Object* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const Object& from);
   void MergeFrom(const Object& from);
   void Clear();
@@ -84,11 +80,7 @@ class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -98,14 +90,14 @@ class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   void UnsafeMergeFrom(const Object& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -168,14 +160,16 @@ class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   // @@protoc_insertion_point(class_scope:coprocess.Object)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   typedef ::google::protobuf::internal::MapEntryLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       Object_MetadataEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -186,7 +180,7 @@ class Object : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       Object_SpecEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -207,7 +201,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<Object> Object_defaul
 
 // -------------------------------------------------------------------
 
-class Event : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.Event) */ {
+class Event : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.Event) */ {
  public:
   Event();
   virtual ~Event();
@@ -219,7 +213,6 @@ class Event : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const Event& default_instance();
 
   static const Event* internal_default_instance();
@@ -231,8 +224,7 @@ class Event : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   inline Event* New() const { return New(NULL); }
 
   Event* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const Event& from);
   void MergeFrom(const Event& from);
   void Clear();
@@ -243,11 +235,7 @@ class Event : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -257,14 +245,14 @@ class Event : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   void UnsafeMergeFrom(const Event& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -284,7 +272,9 @@ class Event : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   // @@protoc_insertion_point(class_scope:coprocess.Event)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   ::google::protobuf::internal::ArenaStringPtr payload_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_coprocess_5fobject_2eproto_impl();
@@ -298,7 +288,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<Event> Event_default_
 
 // -------------------------------------------------------------------
 
-class EventReply : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.EventReply) */ {
+class EventReply : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.EventReply) */ {
  public:
   EventReply();
   virtual ~EventReply();
@@ -310,7 +300,6 @@ class EventReply : public ::google::protobuf::Message /* @@protoc_insertion_poin
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const EventReply& default_instance();
 
   static const EventReply* internal_default_instance();
@@ -322,8 +311,7 @@ class EventReply : public ::google::protobuf::Message /* @@protoc_insertion_poin
   inline EventReply* New() const { return New(NULL); }
 
   EventReply* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const EventReply& from);
   void MergeFrom(const EventReply& from);
   void Clear();
@@ -334,11 +322,7 @@ class EventReply : public ::google::protobuf::Message /* @@protoc_insertion_poin
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -348,14 +332,14 @@ class EventReply : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void UnsafeMergeFrom(const EventReply& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -364,7 +348,9 @@ class EventReply : public ::google::protobuf::Message /* @@protoc_insertion_poin
   // @@protoc_insertion_point(class_scope:coprocess.EventReply)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_coprocess_5fobject_2eproto_impl();
   friend void  protobuf_AddDesc_coprocess_5fobject_2eproto_impl();

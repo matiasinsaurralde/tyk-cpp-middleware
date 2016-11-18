@@ -22,13 +22,11 @@
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/metadata.h>
-#include <google/protobuf/message.h>
+#include <google/protobuf/message_lite.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/map.h>
-#include <google/protobuf/map_field_inl.h>
-#include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/map_field_lite.h>
 #include "coprocess_return_overrides.pb.h"
 // @@protoc_insertion_point(includes)
 
@@ -44,7 +42,7 @@ class MiniRequestObject;
 
 // ===================================================================
 
-class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:coprocess.MiniRequestObject) */ {
+class MiniRequestObject : public ::google::protobuf::MessageLite /* @@protoc_insertion_point(class_definition:coprocess.MiniRequestObject) */ {
  public:
   MiniRequestObject();
   virtual ~MiniRequestObject();
@@ -56,7 +54,6 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
     return *this;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
   static const MiniRequestObject& default_instance();
 
   static const MiniRequestObject* internal_default_instance();
@@ -68,8 +65,7 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
   inline MiniRequestObject* New() const { return New(NULL); }
 
   MiniRequestObject* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const MiniRequestObject& from);
   void MergeFrom(const MiniRequestObject& from);
   void Clear();
@@ -80,11 +76,7 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
-    return InternalSerializeWithCachedSizesToArray(false, output);
-  }
+  void DiscardUnknownFields();
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -94,14 +86,14 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
   void UnsafeMergeFrom(const MiniRequestObject& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
+    return _arena_ptr_;
   }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
+  inline ::google::protobuf::Arena* MaybeArenaPtr() const {
+    return _arena_ptr_;
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
 
   // nested types ----------------------------------------------------
 
@@ -219,14 +211,16 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
   // @@protoc_insertion_point(class_scope:coprocess.MiniRequestObject)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr _unknown_fields_;
+  ::google::protobuf::Arena* _arena_ptr_;
+
   typedef ::google::protobuf::internal::MapEntryLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       MiniRequestObject_HeadersEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -237,7 +231,7 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       MiniRequestObject_SetHeadersEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -249,7 +243,7 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       MiniRequestObject_ParamsEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -260,7 +254,7 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       MiniRequestObject_AddParamsEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -271,7 +265,7 @@ class MiniRequestObject : public ::google::protobuf::Message /* @@protoc_inserti
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 >
       MiniRequestObject_ExtendedParamsEntry;
-  ::google::protobuf::internal::MapField<
+  ::google::protobuf::internal::MapFieldLite<
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,

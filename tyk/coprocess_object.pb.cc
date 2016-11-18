@@ -11,134 +11,15 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 // @@protoc_insertion_point(includes)
 
 namespace coprocess {
 
-namespace {
-
-const ::google::protobuf::Descriptor* Object_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Object_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Object_MetadataEntry_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* Object_SpecEntry_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* Event_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Event_reflection_ = NULL;
-const ::google::protobuf::Descriptor* EventReply_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  EventReply_reflection_ = NULL;
-
-}  // namespace
-
-
-void protobuf_AssignDesc_coprocess_5fobject_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_coprocess_5fobject_2eproto() {
-  protobuf_AddDesc_coprocess_5fobject_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "coprocess_object.proto");
-  GOOGLE_CHECK(file != NULL);
-  Object_descriptor_ = file->message_type(0);
-  static const int Object_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, hook_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, hook_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, request_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, session_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, metadata_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, spec_),
-  };
-  Object_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Object_descriptor_,
-      Object::internal_default_instance(),
-      Object_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Object),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Object, _internal_metadata_));
-  Object_MetadataEntry_descriptor_ = Object_descriptor_->nested_type(0);
-  Object_SpecEntry_descriptor_ = Object_descriptor_->nested_type(1);
-  Event_descriptor_ = file->message_type(1);
-  static const int Event_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Event, payload_),
-  };
-  Event_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Event_descriptor_,
-      Event::internal_default_instance(),
-      Event_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Event),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Event, _internal_metadata_));
-  EventReply_descriptor_ = file->message_type(2);
-  static const int EventReply_offsets_[1] = {
-  };
-  EventReply_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      EventReply_descriptor_,
-      EventReply::internal_default_instance(),
-      EventReply_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(EventReply),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventReply, _internal_metadata_));
-}
-
-namespace {
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_coprocess_5fobject_2eproto);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Object_descriptor_, Object::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        Object_MetadataEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::std::string,
-            ::std::string,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            0>::CreateDefaultInstance(
-                Object_MetadataEntry_descriptor_));
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        Object_SpecEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::std::string,
-            ::std::string,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            0>::CreateDefaultInstance(
-                Object_SpecEntry_descriptor_));
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Event_descriptor_, Event::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      EventReply_descriptor_, EventReply::internal_default_instance());
-}
-
-}  // namespace
-
 void protobuf_ShutdownFile_coprocess_5fobject_2eproto() {
   Object_default_instance_.Shutdown();
-  delete Object_reflection_;
   Event_default_instance_.Shutdown();
-  delete Event_reflection_;
   EventReply_default_instance_.Shutdown();
-  delete EventReply_reflection_;
 }
 
 void protobuf_InitDefaults_coprocess_5fobject_2eproto_impl() {
@@ -167,26 +48,6 @@ void protobuf_AddDesc_coprocess_5fobject_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   protobuf_InitDefaults_coprocess_5fobject_2eproto();
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\026coprocess_object.proto\022\tcoprocess\032#cop"
-    "rocess_mini_request_object.proto\032\035coproc"
-    "ess_session_state.proto\032\026coprocess_commo"
-    "n.proto\"\330\002\n\006Object\022&\n\thook_type\030\001 \001(\0162\023."
-    "coprocess.HookType\022\021\n\thook_name\030\002 \001(\t\022-\n"
-    "\007request\030\003 \001(\0132\034.coprocess.MiniRequestOb"
-    "ject\022(\n\007session\030\004 \001(\0132\027.coprocess.Sessio"
-    "nState\0221\n\010metadata\030\005 \003(\0132\037.coprocess.Obj"
-    "ect.MetadataEntry\022)\n\004spec\030\006 \003(\0132\033.coproc"
-    "ess.Object.SpecEntry\032/\n\rMetadataEntry\022\013\n"
-    "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032+\n\tSpecEnt"
-    "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\030\n\005Ev"
-    "ent\022\017\n\007payload\030\001 \001(\t\"\014\n\nEventReply2|\n\nDi"
-    "spatcher\0222\n\010Dispatch\022\021.coprocess.Object\032"
-    "\021.coprocess.Object\"\000\022:\n\rDispatchEvent\022\020."
-    "coprocess.Event\032\025.coprocess.EventReply\"\000"
-    "b\006proto3", 648);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "coprocess_object.proto", &protobuf_RegisterTypes);
   ::coprocess::protobuf_AddDesc_coprocess_5fmini_5frequest_5fobject_2eproto();
   ::coprocess::protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto();
   ::coprocess::protobuf_AddDesc_coprocess_5fcommon_2eproto();
@@ -198,12 +59,14 @@ void protobuf_AddDesc_coprocess_5fobject_2eproto() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_coprocess_5fobject_2eproto_once_,
                  &protobuf_AddDesc_coprocess_5fobject_2eproto_impl);
 }
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_coprocess_5fobject_2eproto {
   StaticDescriptorInitializer_coprocess_5fobject_2eproto() {
     protobuf_AddDesc_coprocess_5fobject_2eproto();
   }
 } static_descriptor_initializer_coprocess_5fobject_2eproto_;
+#endif  // GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
 
 namespace {
 
@@ -227,7 +90,7 @@ const int Object::kSpecFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Object::Object()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fobject_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.Object)
@@ -241,22 +104,14 @@ void Object::InitAsDefaultInstance() {
 }
 
 Object::Object(const Object& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.Object)
 }
 
 void Object::SharedCtor() {
-  metadata_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  metadata_.SetEntryDescriptor(
-      &::coprocess::Object_MetadataEntry_descriptor_);
-  spec_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  spec_.SetEntryDescriptor(
-      &::coprocess::Object_SpecEntry_descriptor_);
   hook_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   request_ = NULL;
   session_ = NULL;
@@ -282,11 +137,6 @@ void Object::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Object::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Object_descriptor_;
-}
-
 const Object& Object::default_instance() {
   protobuf_InitDefaults_coprocess_5fobject_2eproto();
   return *internal_default_instance();
@@ -388,7 +238,7 @@ bool Object::MergePartialFromCodedStream(
          parse_metadata:
           DO_(input->IncrementRecursionDepth());
          parse_loop_metadata:
-          Object_MetadataEntry::Parser< ::google::protobuf::internal::MapField<
+          Object_MetadataEntry::Parser< ::google::protobuf::internal::MapFieldLite<
               ::std::string, ::std::string,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -418,7 +268,7 @@ bool Object::MergePartialFromCodedStream(
         if (tag == 50) {
           DO_(input->IncrementRecursionDepth());
          parse_loop_spec:
-          Object_SpecEntry::Parser< ::google::protobuf::internal::MapField<
+          Object_SpecEntry::Parser< ::google::protobuf::internal::MapFieldLite<
               ::std::string, ::std::string,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -485,13 +335,13 @@ void Object::SerializeWithCachedSizes(
 
   // optional .coprocess.MiniRequestObject request = 3;
   if (this->has_request()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
       3, *this->request_, output);
   }
 
   // optional .coprocess.SessionState session = 4;
   if (this->has_session()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
       4, *this->session_, output);
   }
 
@@ -530,7 +380,7 @@ void Object::SerializeWithCachedSizes(
       for (size_type i = 0; i < n; i++) {
         entry.reset(metadata_.NewEntryWrapper(
             items[i]->first, items[i]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             5, *entry, output);
         Utf8Check::Check(items[i]);
       }
@@ -541,7 +391,7 @@ void Object::SerializeWithCachedSizes(
           it != this->metadata().end(); ++it) {
         entry.reset(metadata_.NewEntryWrapper(
             it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             5, *entry, output);
         Utf8Check::Check(&*it);
       }
@@ -583,7 +433,7 @@ void Object::SerializeWithCachedSizes(
       for (size_type i = 0; i < n; i++) {
         entry.reset(spec_.NewEntryWrapper(
             items[i]->first, items[i]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             6, *entry, output);
         Utf8Check::Check(items[i]);
       }
@@ -594,7 +444,7 @@ void Object::SerializeWithCachedSizes(
           it != this->spec().end(); ++it) {
         entry.reset(spec_.NewEntryWrapper(
             it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             6, *entry, output);
         Utf8Check::Check(&*it);
       }
@@ -602,159 +452,6 @@ void Object::SerializeWithCachedSizes(
   }
 
   // @@protoc_insertion_point(serialize_end:coprocess.Object)
-}
-
-::google::protobuf::uint8* Object::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.Object)
-  // optional .coprocess.HookType hook_type = 1;
-  if (this->hook_type() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->hook_type(), target);
-  }
-
-  // optional string hook_name = 2;
-  if (this->hook_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hook_name().data(), this->hook_name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.Object.hook_name");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->hook_name(), target);
-  }
-
-  // optional .coprocess.MiniRequestObject request = 3;
-  if (this->has_request()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        3, *this->request_, false, target);
-  }
-
-  // optional .coprocess.SessionState session = 4;
-  if (this->has_session()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        4, *this->session_, false, target);
-  }
-
-  // map<string, string> metadata = 5;
-  if (!this->metadata().empty()) {
-    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.Object.MetadataEntry.key");
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), p->second.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.Object.MetadataEntry.value");
-      }
-    };
-
-    if (deterministic &&
-        this->metadata().size() > 1) {
-      ::google::protobuf::scoped_array<SortItem> items(
-          new SortItem[this->metadata().size()]);
-      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
-          it = this->metadata().begin();
-          it != this->metadata().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[n], Less());
-      ::google::protobuf::scoped_ptr<Object_MetadataEntry> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(metadata_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       5, *entry, deterministic, target);
-;
-        Utf8Check::Check(items[i]);
-      }
-    } else {
-      ::google::protobuf::scoped_ptr<Object_MetadataEntry> entry;
-      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
-          it = this->metadata().begin();
-          it != this->metadata().end(); ++it) {
-        entry.reset(metadata_.NewEntryWrapper(
-            it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       5, *entry, deterministic, target);
-;
-        Utf8Check::Check(&*it);
-      }
-    }
-  }
-
-  // map<string, string> spec = 6;
-  if (!this->spec().empty()) {
-    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.Object.SpecEntry.key");
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), p->second.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.Object.SpecEntry.value");
-      }
-    };
-
-    if (deterministic &&
-        this->spec().size() > 1) {
-      ::google::protobuf::scoped_array<SortItem> items(
-          new SortItem[this->spec().size()]);
-      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
-          it = this->spec().begin();
-          it != this->spec().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[n], Less());
-      ::google::protobuf::scoped_ptr<Object_SpecEntry> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(spec_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       6, *entry, deterministic, target);
-;
-        Utf8Check::Check(items[i]);
-      }
-    } else {
-      ::google::protobuf::scoped_ptr<Object_SpecEntry> entry;
-      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
-          it = this->spec().begin();
-          it != this->spec().end(); ++it) {
-        entry.reset(spec_.NewEntryWrapper(
-            it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       6, *entry, deterministic, target);
-;
-        Utf8Check::Check(&*it);
-      }
-    }
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.Object)
-  return target;
 }
 
 size_t Object::ByteSizeLong() const {
@@ -823,19 +520,9 @@ size_t Object::ByteSizeLong() const {
   return total_size;
 }
 
-void Object::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.Object)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const Object* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Object>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.Object)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.Object)
-    UnsafeMergeFrom(*source);
-  }
+void Object::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const Object*>(&from));
 }
 
 void Object::MergeFrom(const Object& from) {
@@ -866,13 +553,6 @@ void Object::UnsafeMergeFrom(const Object& from) {
   }
 }
 
-void Object::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.Object)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
 void Object::CopyFrom(const Object& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:coprocess.Object)
   if (&from == this) return;
@@ -896,16 +576,12 @@ void Object::InternalSwap(Object* other) {
   std::swap(session_, other->session_);
   metadata_.Swap(&other->metadata_);
   spec_.Swap(&other->spec_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Object::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Object_descriptor_;
-  metadata.reflection = Object_reflection_;
-  return metadata;
+::std::string Object::GetTypeName() const {
+  return "coprocess.Object";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1095,7 +771,7 @@ const int Event::kPayloadFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Event::Event()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fobject_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.Event)
@@ -1105,8 +781,8 @@ void Event::InitAsDefaultInstance() {
 }
 
 Event::Event(const Event& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.Event)
@@ -1131,11 +807,6 @@ void Event::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Event::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Event_descriptor_;
-}
-
 const Event& Event::default_instance() {
   protobuf_InitDefaults_coprocess_5fobject_2eproto();
   return *internal_default_instance();
@@ -1219,25 +890,6 @@ void Event::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.Event)
 }
 
-::google::protobuf::uint8* Event::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.Event)
-  // optional string payload = 1;
-  if (this->payload().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->payload().data(), this->payload().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.Event.payload");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->payload(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.Event)
-  return target;
-}
-
 size_t Event::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.Event)
   size_t total_size = 0;
@@ -1256,19 +908,9 @@ size_t Event::ByteSizeLong() const {
   return total_size;
 }
 
-void Event::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.Event)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const Event* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Event>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.Event)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.Event)
-    UnsafeMergeFrom(*source);
-  }
+void Event::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const Event*>(&from));
 }
 
 void Event::MergeFrom(const Event& from) {
@@ -1286,13 +928,6 @@ void Event::UnsafeMergeFrom(const Event& from) {
 
     payload_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
-}
-
-void Event::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.Event)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
 }
 
 void Event::CopyFrom(const Event& from) {
@@ -1313,16 +948,12 @@ void Event::Swap(Event* other) {
 }
 void Event::InternalSwap(Event* other) {
   payload_.Swap(&other->payload_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Event::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Event_descriptor_;
-  metadata.reflection = Event_reflection_;
-  return metadata;
+::std::string Event::GetTypeName() const {
+  return "coprocess.Event";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1383,7 +1014,7 @@ inline const Event* Event::internal_default_instance() {
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 EventReply::EventReply()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fobject_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.EventReply)
@@ -1393,8 +1024,8 @@ void EventReply::InitAsDefaultInstance() {
 }
 
 EventReply::EventReply(const EventReply& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.EventReply)
@@ -1417,11 +1048,6 @@ void EventReply::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* EventReply::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EventReply_descriptor_;
-}
-
 const EventReply& EventReply::default_instance() {
   protobuf_InitDefaults_coprocess_5fobject_2eproto();
   return *internal_default_instance();
@@ -1473,14 +1099,6 @@ void EventReply::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.EventReply)
 }
 
-::google::protobuf::uint8* EventReply::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.EventReply)
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.EventReply)
-  return target;
-}
-
 size_t EventReply::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.EventReply)
   size_t total_size = 0;
@@ -1492,19 +1110,9 @@ size_t EventReply::ByteSizeLong() const {
   return total_size;
 }
 
-void EventReply::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.EventReply)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const EventReply* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const EventReply>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.EventReply)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.EventReply)
-    UnsafeMergeFrom(*source);
-  }
+void EventReply::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const EventReply*>(&from));
 }
 
 void EventReply::MergeFrom(const EventReply& from) {
@@ -1518,13 +1126,6 @@ void EventReply::MergeFrom(const EventReply& from) {
 
 void EventReply::UnsafeMergeFrom(const EventReply& from) {
   GOOGLE_DCHECK(&from != this);
-}
-
-void EventReply::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.EventReply)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
 }
 
 void EventReply::CopyFrom(const EventReply& from) {
@@ -1544,16 +1145,12 @@ void EventReply::Swap(EventReply* other) {
   InternalSwap(other);
 }
 void EventReply::InternalSwap(EventReply* other) {
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata EventReply::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = EventReply_descriptor_;
-  metadata.reflection = EventReply_reflection_;
-  return metadata;
+::std::string EventReply::GetTypeName() const {
+  return "coprocess.EventReply";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS

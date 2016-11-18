@@ -11,225 +11,18 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 // @@protoc_insertion_point(includes)
 
 namespace coprocess {
 
-namespace {
-
-const ::google::protobuf::Descriptor* AccessSpec_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  AccessSpec_reflection_ = NULL;
-const ::google::protobuf::Descriptor* AccessDefinition_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  AccessDefinition_reflection_ = NULL;
-const ::google::protobuf::Descriptor* BasicAuthData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  BasicAuthData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* JWTData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  JWTData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Monitor_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Monitor_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SessionState_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  SessionState_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SessionState_AccessRightsEntry_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* SessionState_OauthKeysEntry_descriptor_ = NULL;
-
-}  // namespace
-
-
-void protobuf_AssignDesc_coprocess_5fsession_5fstate_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_coprocess_5fsession_5fstate_2eproto() {
-  protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "coprocess_session_state.proto");
-  GOOGLE_CHECK(file != NULL);
-  AccessSpec_descriptor_ = file->message_type(0);
-  static const int AccessSpec_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessSpec, url_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessSpec, methods_),
-  };
-  AccessSpec_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      AccessSpec_descriptor_,
-      AccessSpec::internal_default_instance(),
-      AccessSpec_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(AccessSpec),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessSpec, _internal_metadata_));
-  AccessDefinition_descriptor_ = file->message_type(1);
-  static const int AccessDefinition_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDefinition, api_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDefinition, api_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDefinition, versions_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDefinition, allowed_urls_),
-  };
-  AccessDefinition_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      AccessDefinition_descriptor_,
-      AccessDefinition::internal_default_instance(),
-      AccessDefinition_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(AccessDefinition),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDefinition, _internal_metadata_));
-  BasicAuthData_descriptor_ = file->message_type(2);
-  static const int BasicAuthData_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicAuthData, password_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicAuthData, hash_),
-  };
-  BasicAuthData_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      BasicAuthData_descriptor_,
-      BasicAuthData::internal_default_instance(),
-      BasicAuthData_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(BasicAuthData),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicAuthData, _internal_metadata_));
-  JWTData_descriptor_ = file->message_type(3);
-  static const int JWTData_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JWTData, secret_),
-  };
-  JWTData_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      JWTData_descriptor_,
-      JWTData::internal_default_instance(),
-      JWTData_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(JWTData),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JWTData, _internal_metadata_));
-  Monitor_descriptor_ = file->message_type(4);
-  static const int Monitor_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Monitor, trigger_limits_),
-  };
-  Monitor_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Monitor_descriptor_,
-      Monitor::internal_default_instance(),
-      Monitor_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Monitor),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Monitor, _internal_metadata_));
-  SessionState_descriptor_ = file->message_type(5);
-  static const int SessionState_offsets_[28] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, last_check_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, allowance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, per_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, expires_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, quota_max_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, quota_renews_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, quota_remaining_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, quota_renewal_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, access_rights_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, org_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, oauth_client_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, oauth_keys_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, basic_auth_data_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, jwt_data_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, hmac_enabled_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, hmac_secret_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, is_inactive_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, apply_policy_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, data_expires_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, monitor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, enable_detailed_recording_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, metadata_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, tags_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, alias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, last_updated_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, id_extractor_deadline_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, session_lifetime_),
-  };
-  SessionState_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      SessionState_descriptor_,
-      SessionState::internal_default_instance(),
-      SessionState_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(SessionState),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SessionState, _internal_metadata_));
-  SessionState_AccessRightsEntry_descriptor_ = SessionState_descriptor_->nested_type(0);
-  SessionState_OauthKeysEntry_descriptor_ = SessionState_descriptor_->nested_type(1);
-}
-
-namespace {
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_coprocess_5fsession_5fstate_2eproto);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      AccessSpec_descriptor_, AccessSpec::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      AccessDefinition_descriptor_, AccessDefinition::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      BasicAuthData_descriptor_, BasicAuthData::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      JWTData_descriptor_, JWTData::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Monitor_descriptor_, Monitor::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      SessionState_descriptor_, SessionState::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        SessionState_AccessRightsEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::std::string,
-            ::coprocess::AccessDefinition,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-            0>::CreateDefaultInstance(
-                SessionState_AccessRightsEntry_descriptor_));
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        SessionState_OauthKeysEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::std::string,
-            ::std::string,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-            0>::CreateDefaultInstance(
-                SessionState_OauthKeysEntry_descriptor_));
-}
-
-}  // namespace
-
 void protobuf_ShutdownFile_coprocess_5fsession_5fstate_2eproto() {
   AccessSpec_default_instance_.Shutdown();
-  delete AccessSpec_reflection_;
   AccessDefinition_default_instance_.Shutdown();
-  delete AccessDefinition_reflection_;
   BasicAuthData_default_instance_.Shutdown();
-  delete BasicAuthData_reflection_;
   JWTData_default_instance_.Shutdown();
-  delete JWTData_reflection_;
   Monitor_default_instance_.Shutdown();
-  delete Monitor_reflection_;
   SessionState_default_instance_.Shutdown();
-  delete SessionState_reflection_;
 }
 
 void protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto_impl() {
@@ -264,40 +57,6 @@ void protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\035coprocess_session_state.proto\022\tcoproce"
-    "ss\"*\n\nAccessSpec\022\013\n\003url\030\001 \001(\t\022\017\n\007methods"
-    "\030\002 \003(\t\"s\n\020AccessDefinition\022\020\n\010api_name\030\001"
-    " \001(\t\022\016\n\006api_id\030\002 \001(\t\022\020\n\010versions\030\003 \003(\t\022+"
-    "\n\014allowed_urls\030\004 \003(\0132\025.coprocess.AccessS"
-    "pec\"/\n\rBasicAuthData\022\020\n\010password\030\001 \001(\t\022\014"
-    "\n\004hash\030\002 \001(\t\"\031\n\007JWTData\022\016\n\006secret\030\001 \001(\t\""
-    "!\n\007Monitor\022\026\n\016trigger_limits\030\001 \003(\001\"\370\006\n\014S"
-    "essionState\022\022\n\nlast_check\030\001 \001(\003\022\021\n\tallow"
-    "ance\030\002 \001(\001\022\014\n\004rate\030\003 \001(\001\022\013\n\003per\030\004 \001(\001\022\017\n"
-    "\007expires\030\005 \001(\003\022\021\n\tquota_max\030\006 \001(\003\022\024\n\014quo"
-    "ta_renews\030\007 \001(\003\022\027\n\017quota_remaining\030\010 \001(\003"
-    "\022\032\n\022quota_renewal_rate\030\t \001(\003\022@\n\raccess_r"
-    "ights\030\n \003(\0132).coprocess.SessionState.Acc"
-    "essRightsEntry\022\016\n\006org_id\030\013 \001(\t\022\027\n\017oauth_"
-    "client_id\030\014 \001(\t\022:\n\noauth_keys\030\r \003(\0132&.co"
-    "process.SessionState.OauthKeysEntry\0221\n\017b"
-    "asic_auth_data\030\016 \001(\0132\030.coprocess.BasicAu"
-    "thData\022$\n\010jwt_data\030\017 \001(\0132\022.coprocess.JWT"
-    "Data\022\024\n\014hmac_enabled\030\020 \001(\010\022\023\n\013hmac_secre"
-    "t\030\021 \001(\t\022\023\n\013is_inactive\030\022 \001(\010\022\027\n\017apply_po"
-    "licy_id\030\023 \001(\t\022\024\n\014data_expires\030\024 \001(\003\022#\n\007m"
-    "onitor\030\025 \001(\0132\022.coprocess.Monitor\022!\n\031enab"
-    "le_detailed_recording\030\026 \001(\010\022\020\n\010metadata\030"
-    "\027 \001(\t\022\014\n\004tags\030\030 \003(\t\022\r\n\005alias\030\031 \001(\t\022\024\n\014la"
-    "st_updated\030\032 \001(\t\022\035\n\025id_extractor_deadlin"
-    "e\030\033 \001(\003\022\030\n\020session_lifetime\030\034 \001(\003\032P\n\021Acc"
-    "essRightsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001"
-    "(\0132\033.coprocess.AccessDefinition:\0028\001\0320\n\016O"
-    "authKeysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
-    "\t:\0028\001b\006proto3", 1213);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "coprocess_session_state.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_coprocess_5fsession_5fstate_2eproto);
 }
 
@@ -306,12 +65,14 @@ void protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto_once_,
                  &protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto_impl);
 }
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_coprocess_5fsession_5fstate_2eproto {
   StaticDescriptorInitializer_coprocess_5fsession_5fstate_2eproto() {
     protobuf_AddDesc_coprocess_5fsession_5fstate_2eproto();
   }
 } static_descriptor_initializer_coprocess_5fsession_5fstate_2eproto_;
+#endif  // GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
 
 namespace {
 
@@ -331,7 +92,7 @@ const int AccessSpec::kMethodsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AccessSpec::AccessSpec()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.AccessSpec)
@@ -341,8 +102,8 @@ void AccessSpec::InitAsDefaultInstance() {
 }
 
 AccessSpec::AccessSpec(const AccessSpec& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.AccessSpec)
@@ -367,11 +128,6 @@ void AccessSpec::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* AccessSpec::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return AccessSpec_descriptor_;
-}
-
 const AccessSpec& AccessSpec::default_instance() {
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   return *internal_default_instance();
@@ -485,35 +241,6 @@ void AccessSpec::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.AccessSpec)
 }
 
-::google::protobuf::uint8* AccessSpec::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.AccessSpec)
-  // optional string url = 1;
-  if (this->url().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->url().data(), this->url().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.AccessSpec.url");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->url(), target);
-  }
-
-  // repeated string methods = 2;
-  for (int i = 0; i < this->methods_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->methods(i).data(), this->methods(i).length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.AccessSpec.methods");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(2, this->methods(i), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.AccessSpec)
-  return target;
-}
-
 size_t AccessSpec::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.AccessSpec)
   size_t total_size = 0;
@@ -540,19 +267,9 @@ size_t AccessSpec::ByteSizeLong() const {
   return total_size;
 }
 
-void AccessSpec::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.AccessSpec)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const AccessSpec* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AccessSpec>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.AccessSpec)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.AccessSpec)
-    UnsafeMergeFrom(*source);
-  }
+void AccessSpec::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const AccessSpec*>(&from));
 }
 
 void AccessSpec::MergeFrom(const AccessSpec& from) {
@@ -571,13 +288,6 @@ void AccessSpec::UnsafeMergeFrom(const AccessSpec& from) {
 
     url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
   }
-}
-
-void AccessSpec::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.AccessSpec)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
 }
 
 void AccessSpec::CopyFrom(const AccessSpec& from) {
@@ -599,16 +309,12 @@ void AccessSpec::Swap(AccessSpec* other) {
 void AccessSpec::InternalSwap(AccessSpec* other) {
   url_.Swap(&other->url_);
   methods_.UnsafeArenaSwap(&other->methods_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata AccessSpec::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = AccessSpec_descriptor_;
-  metadata.reflection = AccessSpec_reflection_;
-  return metadata;
+::std::string AccessSpec::GetTypeName() const {
+  return "coprocess.AccessSpec";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -728,7 +434,7 @@ const int AccessDefinition::kAllowedUrlsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AccessDefinition::AccessDefinition()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.AccessDefinition)
@@ -738,8 +444,8 @@ void AccessDefinition::InitAsDefaultInstance() {
 }
 
 AccessDefinition::AccessDefinition(const AccessDefinition& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.AccessDefinition)
@@ -766,11 +472,6 @@ void AccessDefinition::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* AccessDefinition::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return AccessDefinition_descriptor_;
-}
-
 const AccessDefinition& AccessDefinition::default_instance() {
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   return *internal_default_instance();
@@ -929,58 +630,11 @@ void AccessDefinition::SerializeWithCachedSizes(
 
   // repeated .coprocess.AccessSpec allowed_urls = 4;
   for (unsigned int i = 0, n = this->allowed_urls_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
       4, this->allowed_urls(i), output);
   }
 
   // @@protoc_insertion_point(serialize_end:coprocess.AccessDefinition)
-}
-
-::google::protobuf::uint8* AccessDefinition::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.AccessDefinition)
-  // optional string api_name = 1;
-  if (this->api_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->api_name().data(), this->api_name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.AccessDefinition.api_name");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->api_name(), target);
-  }
-
-  // optional string api_id = 2;
-  if (this->api_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->api_id().data(), this->api_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.AccessDefinition.api_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->api_id(), target);
-  }
-
-  // repeated string versions = 3;
-  for (int i = 0; i < this->versions_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->versions(i).data(), this->versions(i).length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.AccessDefinition.versions");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(3, this->versions(i), target);
-  }
-
-  // repeated .coprocess.AccessSpec allowed_urls = 4;
-  for (unsigned int i = 0, n = this->allowed_urls_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        4, this->allowed_urls(i), false, target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.AccessDefinition)
-  return target;
 }
 
 size_t AccessDefinition::ByteSizeLong() const {
@@ -1027,19 +681,9 @@ size_t AccessDefinition::ByteSizeLong() const {
   return total_size;
 }
 
-void AccessDefinition::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.AccessDefinition)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const AccessDefinition* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AccessDefinition>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.AccessDefinition)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.AccessDefinition)
-    UnsafeMergeFrom(*source);
-  }
+void AccessDefinition::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const AccessDefinition*>(&from));
 }
 
 void AccessDefinition::MergeFrom(const AccessDefinition& from) {
@@ -1065,13 +709,6 @@ void AccessDefinition::UnsafeMergeFrom(const AccessDefinition& from) {
   }
 }
 
-void AccessDefinition::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.AccessDefinition)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
 void AccessDefinition::CopyFrom(const AccessDefinition& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:coprocess.AccessDefinition)
   if (&from == this) return;
@@ -1093,16 +730,12 @@ void AccessDefinition::InternalSwap(AccessDefinition* other) {
   api_id_.Swap(&other->api_id_);
   versions_.UnsafeArenaSwap(&other->versions_);
   allowed_urls_.UnsafeArenaSwap(&other->allowed_urls_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata AccessDefinition::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = AccessDefinition_descriptor_;
-  metadata.reflection = AccessDefinition_reflection_;
-  return metadata;
+::std::string AccessDefinition::GetTypeName() const {
+  return "coprocess.AccessDefinition";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1294,7 +927,7 @@ const int BasicAuthData::kHashFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 BasicAuthData::BasicAuthData()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.BasicAuthData)
@@ -1304,8 +937,8 @@ void BasicAuthData::InitAsDefaultInstance() {
 }
 
 BasicAuthData::BasicAuthData(const BasicAuthData& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.BasicAuthData)
@@ -1332,11 +965,6 @@ void BasicAuthData::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* BasicAuthData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return BasicAuthData_descriptor_;
-}
-
 const BasicAuthData& BasicAuthData::default_instance() {
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   return *internal_default_instance();
@@ -1448,36 +1076,6 @@ void BasicAuthData::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.BasicAuthData)
 }
 
-::google::protobuf::uint8* BasicAuthData::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.BasicAuthData)
-  // optional string password = 1;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.BasicAuthData.password");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->password(), target);
-  }
-
-  // optional string hash = 2;
-  if (this->hash().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hash().data(), this->hash().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.BasicAuthData.hash");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->hash(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.BasicAuthData)
-  return target;
-}
-
 size_t BasicAuthData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.BasicAuthData)
   size_t total_size = 0;
@@ -1503,19 +1101,9 @@ size_t BasicAuthData::ByteSizeLong() const {
   return total_size;
 }
 
-void BasicAuthData::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.BasicAuthData)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const BasicAuthData* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const BasicAuthData>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.BasicAuthData)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.BasicAuthData)
-    UnsafeMergeFrom(*source);
-  }
+void BasicAuthData::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const BasicAuthData*>(&from));
 }
 
 void BasicAuthData::MergeFrom(const BasicAuthData& from) {
@@ -1539,13 +1127,6 @@ void BasicAuthData::UnsafeMergeFrom(const BasicAuthData& from) {
   }
 }
 
-void BasicAuthData::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.BasicAuthData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
 void BasicAuthData::CopyFrom(const BasicAuthData& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:coprocess.BasicAuthData)
   if (&from == this) return;
@@ -1565,16 +1146,12 @@ void BasicAuthData::Swap(BasicAuthData* other) {
 void BasicAuthData::InternalSwap(BasicAuthData* other) {
   password_.Swap(&other->password_);
   hash_.Swap(&other->hash_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata BasicAuthData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = BasicAuthData_descriptor_;
-  metadata.reflection = BasicAuthData_reflection_;
-  return metadata;
+::std::string BasicAuthData::GetTypeName() const {
+  return "coprocess.BasicAuthData";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1680,7 +1257,7 @@ const int JWTData::kSecretFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 JWTData::JWTData()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.JWTData)
@@ -1690,8 +1267,8 @@ void JWTData::InitAsDefaultInstance() {
 }
 
 JWTData::JWTData(const JWTData& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.JWTData)
@@ -1716,11 +1293,6 @@ void JWTData::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* JWTData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return JWTData_descriptor_;
-}
-
 const JWTData& JWTData::default_instance() {
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   return *internal_default_instance();
@@ -1804,25 +1376,6 @@ void JWTData::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.JWTData)
 }
 
-::google::protobuf::uint8* JWTData::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.JWTData)
-  // optional string secret = 1;
-  if (this->secret().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->secret().data(), this->secret().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.JWTData.secret");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->secret(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.JWTData)
-  return target;
-}
-
 size_t JWTData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.JWTData)
   size_t total_size = 0;
@@ -1841,19 +1394,9 @@ size_t JWTData::ByteSizeLong() const {
   return total_size;
 }
 
-void JWTData::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.JWTData)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const JWTData* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const JWTData>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.JWTData)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.JWTData)
-    UnsafeMergeFrom(*source);
-  }
+void JWTData::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const JWTData*>(&from));
 }
 
 void JWTData::MergeFrom(const JWTData& from) {
@@ -1871,13 +1414,6 @@ void JWTData::UnsafeMergeFrom(const JWTData& from) {
 
     secret_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.secret_);
   }
-}
-
-void JWTData::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.JWTData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
 }
 
 void JWTData::CopyFrom(const JWTData& from) {
@@ -1898,16 +1434,12 @@ void JWTData::Swap(JWTData* other) {
 }
 void JWTData::InternalSwap(JWTData* other) {
   secret_.Swap(&other->secret_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata JWTData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = JWTData_descriptor_;
-  metadata.reflection = JWTData_reflection_;
-  return metadata;
+::std::string JWTData::GetTypeName() const {
+  return "coprocess.JWTData";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1969,7 +1501,7 @@ const int Monitor::kTriggerLimitsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Monitor::Monitor()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.Monitor)
@@ -1979,8 +1511,8 @@ void Monitor::InitAsDefaultInstance() {
 }
 
 Monitor::Monitor(const Monitor& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.Monitor)
@@ -2003,11 +1535,6 @@ void Monitor::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Monitor::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Monitor_descriptor_;
-}
-
 const Monitor& Monitor::default_instance() {
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   return *internal_default_instance();
@@ -2092,28 +1619,6 @@ void Monitor::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:coprocess.Monitor)
 }
 
-::google::protobuf::uint8* Monitor::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.Monitor)
-  // repeated double trigger_limits = 1;
-  if (this->trigger_limits_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      1,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-      _trigger_limits_cached_byte_size_, target);
-  }
-  for (int i = 0; i < this->trigger_limits_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteDoubleNoTagToArray(this->trigger_limits(i), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.Monitor)
-  return target;
-}
-
 size_t Monitor::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:coprocess.Monitor)
   size_t total_size = 0;
@@ -2141,19 +1646,9 @@ size_t Monitor::ByteSizeLong() const {
   return total_size;
 }
 
-void Monitor::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.Monitor)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const Monitor* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Monitor>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.Monitor)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.Monitor)
-    UnsafeMergeFrom(*source);
-  }
+void Monitor::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const Monitor*>(&from));
 }
 
 void Monitor::MergeFrom(const Monitor& from) {
@@ -2168,13 +1663,6 @@ void Monitor::MergeFrom(const Monitor& from) {
 void Monitor::UnsafeMergeFrom(const Monitor& from) {
   GOOGLE_DCHECK(&from != this);
   trigger_limits_.UnsafeMergeFrom(from.trigger_limits_);
-}
-
-void Monitor::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.Monitor)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
 }
 
 void Monitor::CopyFrom(const Monitor& from) {
@@ -2195,16 +1683,12 @@ void Monitor::Swap(Monitor* other) {
 }
 void Monitor::InternalSwap(Monitor* other) {
   trigger_limits_.UnsafeArenaSwap(&other->trigger_limits_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Monitor::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Monitor_descriptor_;
-  metadata.reflection = Monitor_reflection_;
-  return metadata;
+::std::string Monitor::GetTypeName() const {
+  return "coprocess.Monitor";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2279,7 +1763,7 @@ const int SessionState::kSessionLifetimeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SessionState::SessionState()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(), _arena_ptr_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:coprocess.SessionState)
@@ -2295,22 +1779,14 @@ void SessionState::InitAsDefaultInstance() {
 }
 
 SessionState::SessionState(const SessionState& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
+  : ::google::protobuf::MessageLite(),
+    _arena_ptr_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:coprocess.SessionState)
 }
 
 void SessionState::SharedCtor() {
-  access_rights_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  access_rights_.SetEntryDescriptor(
-      &::coprocess::SessionState_AccessRightsEntry_descriptor_);
-  oauth_keys_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  oauth_keys_.SetEntryDescriptor(
-      &::coprocess::SessionState_OauthKeysEntry_descriptor_);
   org_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   oauth_client_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hmac_secret_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -2351,11 +1827,6 @@ void SessionState::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* SessionState::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SessionState_descriptor_;
-}
-
 const SessionState& SessionState::default_instance() {
   protobuf_InitDefaults_coprocess_5fsession_5fstate_2eproto();
   return *internal_default_instance();
@@ -2567,7 +2038,7 @@ bool SessionState::MergePartialFromCodedStream(
          parse_access_rights:
           DO_(input->IncrementRecursionDepth());
          parse_loop_access_rights:
-          SessionState_AccessRightsEntry::Parser< ::google::protobuf::internal::MapField<
+          SessionState_AccessRightsEntry::Parser< ::google::protobuf::internal::MapFieldLite<
               ::std::string, ::coprocess::AccessDefinition,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
               ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
@@ -2628,7 +2099,7 @@ bool SessionState::MergePartialFromCodedStream(
          parse_oauth_keys:
           DO_(input->IncrementRecursionDepth());
          parse_loop_oauth_keys:
-          SessionState_OauthKeysEntry::Parser< ::google::protobuf::internal::MapField<
+          SessionState_OauthKeysEntry::Parser< ::google::protobuf::internal::MapFieldLite<
               ::std::string, ::std::string,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
               ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -2986,7 +2457,7 @@ void SessionState::SerializeWithCachedSizes(
       for (size_type i = 0; i < n; i++) {
         entry.reset(access_rights_.NewEntryWrapper(
             items[i]->first, items[i]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             10, *entry, output);
         Utf8Check::Check(items[i]);
       }
@@ -2997,7 +2468,7 @@ void SessionState::SerializeWithCachedSizes(
           it != this->access_rights().end(); ++it) {
         entry.reset(access_rights_.NewEntryWrapper(
             it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             10, *entry, output);
         Utf8Check::Check(&*it);
       }
@@ -3059,7 +2530,7 @@ void SessionState::SerializeWithCachedSizes(
       for (size_type i = 0; i < n; i++) {
         entry.reset(oauth_keys_.NewEntryWrapper(
             items[i]->first, items[i]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             13, *entry, output);
         Utf8Check::Check(items[i]);
       }
@@ -3070,7 +2541,7 @@ void SessionState::SerializeWithCachedSizes(
           it != this->oauth_keys().end(); ++it) {
         entry.reset(oauth_keys_.NewEntryWrapper(
             it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+        ::google::protobuf::internal::WireFormatLite::WriteMessage(
             13, *entry, output);
         Utf8Check::Check(&*it);
       }
@@ -3079,13 +2550,13 @@ void SessionState::SerializeWithCachedSizes(
 
   // optional .coprocess.BasicAuthData basic_auth_data = 14;
   if (this->has_basic_auth_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
       14, *this->basic_auth_data_, output);
   }
 
   // optional .coprocess.JWTData jwt_data = 15;
   if (this->has_jwt_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
       15, *this->jwt_data_, output);
   }
 
@@ -3126,7 +2597,7 @@ void SessionState::SerializeWithCachedSizes(
 
   // optional .coprocess.Monitor monitor = 21;
   if (this->has_monitor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
       21, *this->monitor_, output);
   }
 
@@ -3186,307 +2657,6 @@ void SessionState::SerializeWithCachedSizes(
   }
 
   // @@protoc_insertion_point(serialize_end:coprocess.SessionState)
-}
-
-::google::protobuf::uint8* SessionState::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:coprocess.SessionState)
-  // optional int64 last_check = 1;
-  if (this->last_check() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->last_check(), target);
-  }
-
-  // optional double allowance = 2;
-  if (this->allowance() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->allowance(), target);
-  }
-
-  // optional double rate = 3;
-  if (this->rate() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->rate(), target);
-  }
-
-  // optional double per = 4;
-  if (this->per() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->per(), target);
-  }
-
-  // optional int64 expires = 5;
-  if (this->expires() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->expires(), target);
-  }
-
-  // optional int64 quota_max = 6;
-  if (this->quota_max() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->quota_max(), target);
-  }
-
-  // optional int64 quota_renews = 7;
-  if (this->quota_renews() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->quota_renews(), target);
-  }
-
-  // optional int64 quota_remaining = 8;
-  if (this->quota_remaining() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->quota_remaining(), target);
-  }
-
-  // optional int64 quota_renewal_rate = 9;
-  if (this->quota_renewal_rate() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->quota_renewal_rate(), target);
-  }
-
-  // map<string, .coprocess.AccessDefinition> access_rights = 10;
-  if (!this->access_rights().empty()) {
-    typedef ::google::protobuf::Map< ::std::string, ::coprocess::AccessDefinition >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.SessionState.AccessRightsEntry.key");
-      }
-    };
-
-    if (deterministic &&
-        this->access_rights().size() > 1) {
-      ::google::protobuf::scoped_array<SortItem> items(
-          new SortItem[this->access_rights().size()]);
-      typedef ::google::protobuf::Map< ::std::string, ::coprocess::AccessDefinition >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::std::string, ::coprocess::AccessDefinition >::const_iterator
-          it = this->access_rights().begin();
-          it != this->access_rights().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[n], Less());
-      ::google::protobuf::scoped_ptr<SessionState_AccessRightsEntry> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(access_rights_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       10, *entry, deterministic, target);
-;
-        Utf8Check::Check(items[i]);
-      }
-    } else {
-      ::google::protobuf::scoped_ptr<SessionState_AccessRightsEntry> entry;
-      for (::google::protobuf::Map< ::std::string, ::coprocess::AccessDefinition >::const_iterator
-          it = this->access_rights().begin();
-          it != this->access_rights().end(); ++it) {
-        entry.reset(access_rights_.NewEntryWrapper(
-            it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       10, *entry, deterministic, target);
-;
-        Utf8Check::Check(&*it);
-      }
-    }
-  }
-
-  // optional string org_id = 11;
-  if (this->org_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->org_id().data(), this->org_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.org_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        11, this->org_id(), target);
-  }
-
-  // optional string oauth_client_id = 12;
-  if (this->oauth_client_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->oauth_client_id().data(), this->oauth_client_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.oauth_client_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        12, this->oauth_client_id(), target);
-  }
-
-  // map<string, string> oauth_keys = 13;
-  if (!this->oauth_keys().empty()) {
-    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), p->first.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.SessionState.OauthKeysEntry.key");
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), p->second.length(),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-          "coprocess.SessionState.OauthKeysEntry.value");
-      }
-    };
-
-    if (deterministic &&
-        this->oauth_keys().size() > 1) {
-      ::google::protobuf::scoped_array<SortItem> items(
-          new SortItem[this->oauth_keys().size()]);
-      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
-          it = this->oauth_keys().begin();
-          it != this->oauth_keys().end(); ++it, ++n) {
-        items[n] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[n], Less());
-      ::google::protobuf::scoped_ptr<SessionState_OauthKeysEntry> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(oauth_keys_.NewEntryWrapper(
-            items[i]->first, items[i]->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       13, *entry, deterministic, target);
-;
-        Utf8Check::Check(items[i]);
-      }
-    } else {
-      ::google::protobuf::scoped_ptr<SessionState_OauthKeysEntry> entry;
-      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
-          it = this->oauth_keys().begin();
-          it != this->oauth_keys().end(); ++it) {
-        entry.reset(oauth_keys_.NewEntryWrapper(
-            it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       13, *entry, deterministic, target);
-;
-        Utf8Check::Check(&*it);
-      }
-    }
-  }
-
-  // optional .coprocess.BasicAuthData basic_auth_data = 14;
-  if (this->has_basic_auth_data()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        14, *this->basic_auth_data_, false, target);
-  }
-
-  // optional .coprocess.JWTData jwt_data = 15;
-  if (this->has_jwt_data()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        15, *this->jwt_data_, false, target);
-  }
-
-  // optional bool hmac_enabled = 16;
-  if (this->hmac_enabled() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(16, this->hmac_enabled(), target);
-  }
-
-  // optional string hmac_secret = 17;
-  if (this->hmac_secret().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hmac_secret().data(), this->hmac_secret().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.hmac_secret");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        17, this->hmac_secret(), target);
-  }
-
-  // optional bool is_inactive = 18;
-  if (this->is_inactive() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(18, this->is_inactive(), target);
-  }
-
-  // optional string apply_policy_id = 19;
-  if (this->apply_policy_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->apply_policy_id().data(), this->apply_policy_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.apply_policy_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        19, this->apply_policy_id(), target);
-  }
-
-  // optional int64 data_expires = 20;
-  if (this->data_expires() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(20, this->data_expires(), target);
-  }
-
-  // optional .coprocess.Monitor monitor = 21;
-  if (this->has_monitor()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        21, *this->monitor_, false, target);
-  }
-
-  // optional bool enable_detailed_recording = 22;
-  if (this->enable_detailed_recording() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(22, this->enable_detailed_recording(), target);
-  }
-
-  // optional string metadata = 23;
-  if (this->metadata().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->metadata().data(), this->metadata().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.metadata");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        23, this->metadata(), target);
-  }
-
-  // repeated string tags = 24;
-  for (int i = 0; i < this->tags_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->tags(i).data(), this->tags(i).length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.tags");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(24, this->tags(i), target);
-  }
-
-  // optional string alias = 25;
-  if (this->alias().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->alias().data(), this->alias().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.alias");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        25, this->alias(), target);
-  }
-
-  // optional string last_updated = 26;
-  if (this->last_updated().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->last_updated().data(), this->last_updated().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "coprocess.SessionState.last_updated");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        26, this->last_updated(), target);
-  }
-
-  // optional int64 id_extractor_deadline = 27;
-  if (this->id_extractor_deadline() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(27, this->id_extractor_deadline(), target);
-  }
-
-  // optional int64 session_lifetime = 28;
-  if (this->session_lifetime() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(28, this->session_lifetime(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:coprocess.SessionState)
-  return target;
 }
 
 size_t SessionState::ByteSizeLong() const {
@@ -3699,19 +2869,9 @@ size_t SessionState::ByteSizeLong() const {
   return total_size;
 }
 
-void SessionState::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:coprocess.SessionState)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const SessionState* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const SessionState>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:coprocess.SessionState)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:coprocess.SessionState)
-    UnsafeMergeFrom(*source);
-  }
+void SessionState::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const SessionState*>(&from));
 }
 
 void SessionState::MergeFrom(const SessionState& from) {
@@ -3812,13 +2972,6 @@ void SessionState::UnsafeMergeFrom(const SessionState& from) {
   }
 }
 
-void SessionState::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:coprocess.SessionState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
 void SessionState::CopyFrom(const SessionState& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:coprocess.SessionState)
   if (&from == this) return;
@@ -3864,16 +3017,12 @@ void SessionState::InternalSwap(SessionState* other) {
   last_updated_.Swap(&other->last_updated_);
   std::swap(id_extractor_deadline_, other->id_extractor_deadline_);
   std::swap(session_lifetime_, other->session_lifetime_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _unknown_fields_.Swap(&other->_unknown_fields_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata SessionState::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SessionState_descriptor_;
-  metadata.reflection = SessionState_reflection_;
-  return metadata;
+::std::string SessionState::GetTypeName() const {
+  return "coprocess.SessionState";
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
